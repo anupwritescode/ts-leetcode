@@ -1,7 +1,9 @@
 function isPalindrome(x: number): boolean {
-    let s = x.toString();
-    for(let i=0, j=s.length-1; i<=j; i++, j--) {
-        if(s[i] != s[j]) return false;
+    if(x<0 || (x % 10 == 0 && x != 0)) return false;
+    let reversedNum = 0; 
+    while(x > reversedNum) {
+        reversedNum = reversedNum * 10 + x % 10;
+        x = Math.floor(x / 10);
     }
-    return true;
+    return(x == reversedNum || x == Math.floor(reversedNum/10));
 };
